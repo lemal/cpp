@@ -1,5 +1,5 @@
-SRCS	=	megaphone.cpp
-NAME	=	megaphone
+SRCS	=	
+NAME	=	
 
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} megaphone.hpp
+${NAME}:	${OBJS} .hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}
