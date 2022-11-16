@@ -1,5 +1,5 @@
-SRCS	=	
-NAME	=	
+SRCS	=	phonebook.cpp
+NAME	=	phonebook
 
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} .hpp
+${NAME}:	${OBJS} phonebook.hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}
