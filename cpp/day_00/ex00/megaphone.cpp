@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:54:55 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/15 10:46:30 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:45:44 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,5 @@ int	main(int argc, char **argv)
 	std::cout << '\n';
 	return (0);
 }
+//iterator (pointer wrapper, pointer to a collection) 
+//functional object - lamda class with an overloaded operator

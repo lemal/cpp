@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:40:41 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/16 12:34:18 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:47:04 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,10 @@
 class Sample
 {
 private:
-	int	kek;
 	std::string kek21;
 public:
 	Sample(void);
-	Sample(int	kek_init);
-	void SetSample(std::string kek21_init);
-	void SetSample(int	kek_set);
-	void GetSampleKek(void);
-	void GetSampleStr(void);
-	void GetStrLength(void);
+    void    SetStr(std::string str);
 	~Sample(void);
 };
 

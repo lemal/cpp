@@ -1,8 +1,8 @@
 SRCS	=	cpp_1.cpp
 NAME	=	test
 
-OBJS	=	${SRCS:%c=%.o}
-DEPS	=	${SRCS:%c=%d}
+OBJS	=	${SRCS:%.cpp=%.o}
+DEPS	=	${OBJS:%.o=%.d}
 
 CPPFLAGS=	-Wall -Wextra -Werror -Wno-unused -std=c++98
 RM		=	rm -f
