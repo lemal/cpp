@@ -1,5 +1,5 @@
-SRCS	=	phonebook.cpp
-NAME	=	phonebook
+SRCS	=	main.cpp
+NAME	=	sedcpy
 
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} phonebook.hpp
+${NAME}:	${OBJS} Zombie.hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}

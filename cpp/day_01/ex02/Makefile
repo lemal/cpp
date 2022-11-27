@@ -1,10 +1,10 @@
-SRCS	=	phonebook.cpp
-NAME	=	phonebook
+SRCS	=	main.cpp
+NAME	=	HTIB
 
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
 
-CPPFLAGS=	-Wall -Wextra -Werror -std=c++98
+CPPFLAGS=	-Wall -Wextra -Werror -std=c++98 -Wno-unused
 RM		=	rm -f
 CC		=	c++
 DFLAGS	=	-MMD -MP
@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} phonebook.hpp
+${NAME}:	${OBJS} 
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}

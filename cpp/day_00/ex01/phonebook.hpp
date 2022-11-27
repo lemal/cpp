@@ -15,7 +15,7 @@
 # include <iostream>
 # include <string>
 # include <stdbool.h>
-
+# include <iomanip>
 class Contact
 {
 private:
@@ -28,12 +28,18 @@ public:
 	Contact(void);
 	// void			SetContactDetails(void);//call and check len in main. need individual functions
     // void	SetContactData(void);
+  bool SetVal(std::string str, std::string *val);
+  void            SetUserData(void);
 	bool			SetFirstName(void);//stay in one function while input is equal to zero.
 	bool			SetLastName(void);
 	bool			SetNickName(void);
 	bool			SetPhoneNumber(void);
 	bool			SetDarkSecret(void);
-    void            SetUserData(void);
+        void			GetFirstName(void);
+        void                    GetLastName(void);
+	void			GetNickName(void);
+  //	void			GetPhoneNumber(void);
+  //	void			GetDarkSecret(void);
 	~Contact(void);
 };
 
@@ -41,8 +47,12 @@ class PhoneBook
 {
 private:
 	Contact	contactData[8];
+  bool contactFilled[8];
+  int index;
 public:
 	PhoneBook();
+  void SetContact(void);
+   void            IndexIntoPhonebook(void);
 	~PhoneBook();
 };
 

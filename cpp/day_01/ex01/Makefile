@@ -1,5 +1,7 @@
-SRCS	=	phonebook.cpp
-NAME	=	phonebook
+SRCS	=	Zombie.cpp
+#main.cpp
+
+NAME	=	zombieHorde
 
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
@@ -11,8 +13,9 @@ DFLAGS	=	-MMD -MP
 
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
+#-o multiple output files error, thrown mqin into Zombie
 
-${NAME}:	${OBJS} phonebook.hpp
+${NAME}:	${OBJS} Zombie.hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}
