@@ -1,0 +1,78 @@
+#include "violence.hpp"
+
+std::string const &Weapon::getType(void)
+{
+  std::string const &typeRef = type;
+
+  return (typeRef);
+}
+
+void Weapon::setType( std::string str )
+{
+  type = str;
+  std::cout << "wpn settype called, address is  " << &type << " type " << type << std::endl;
+  std::cout << " gettype is " << &getType() << std::endl;
+  //std::cout << "weapon set to: " << type << std::endl;
+}
+
+Weapon::Weapon()
+{
+}
+
+Weapon::Weapon( std::string str )
+{
+  setType(str);
+  std::cout << " wpn constr called, gettype is " << &getTy
+
+void HumanB::attack(void)
+{
+  std::cout << name << " attacks with their " << wpn.getType() << std::endl;
+}
+
+HumanB::HumanB(std::string nameInit)
+{
+  name = nameInit;
+}
+
+HumanB::~HumanB()
+{
+}
+
+void HumanB::setWeapon(Weapon wpnInit)
+{
+  wpn = wpnInit;
+}
+int main(void)
+{
+  //Weapon club = Weapon("crude spiked club");
+  //can only do what they ask with dybamic memory
+
+  //Weapom class tests
+  //club.setType("kek");
+  //std::cout << club.getType() << std::endl;
+
+  //Human class tests
+  //HumanA kek("kek", club);
+
+
+  /*HumanA bob("Bob", club);//"crude spiked club");//club);
+  bob.attack();
+  club.setType("some other type of club");
+  //std::cout << " value referenced " << club.getType() << std::endl;
+  //std::cout << club.getType() << std::endl;
+  bob.attack();*/
+  Weapon club = Weapon("crude spiked club");
+  
+  HumanB jim("Jim");
+  
+  jim.setWeapon(club);
+  
+  jim.attack();
+  
+  club.setType("some other type of club");
+  
+  jim.attack();
+  
+}
+
+
