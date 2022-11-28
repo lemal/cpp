@@ -5,29 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:37:50 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/28 17:11:42 by tapulask         ###   ########.fr       */
+/*   Created: 2022/11/28 16:28:18 by tapulask          #+#    #+#             */
+/*   Updated: 2022/11/28 16:35:05 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#define ZNUM 4
+# include "Zombie.hpp"
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie *newZombie( std::string str );
 
 int main(void)
 {
-    Zombie *test;
-    int     test_num;
+  Zombie test;
+  Zombie *kek;
 
-    test_num = ZNUM;
-    test = zombieHorde(test_num, "Bobbosaurus");
-    while (test_num > 0)
-    {
-        test[test_num].announce();
-        test_num--;
-    }
-    delete[] test;
-    return (0);
+  kek = newZombie("Jeff");
+  kek->announce();
+  test.randomChump("Bob");
+
+  delete(kek);
+  return (0);
 }
-

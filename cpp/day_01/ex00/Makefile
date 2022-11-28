@@ -1,4 +1,4 @@
-SRCS	=	Zombie.cpp
+SRCS	=	Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 NAME	=	Zombie
 
 OBJS	=	${SRCS:%.cpp=%.o}
@@ -10,7 +10,7 @@ CC		=	c++
 DFLAGS	=	-MMD -MP
 
 %.o:	%.cpp
-	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
+	${CC} ${CPPFLAGS} ${DFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS} Zombie.hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@

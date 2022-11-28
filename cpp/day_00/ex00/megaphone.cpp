@@ -6,7 +6,7 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:54:55 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/16 20:45:44 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/28 15:36:15 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		std::cout << str << '\n';
+		std::cout << str << std::endl;
 		return (0);
 	}
 	i = 1;
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-	std::cout << '\n';
+	std::cout << std::endl;
 	return (0);
 }
 //iterator (pointer wrapper, pointer to a collection) 

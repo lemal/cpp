@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:37:50 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/28 17:11:42 by tapulask         ###   ########.fr       */
+/*   Created: 2022/11/28 16:30:09 by tapulask          #+#    #+#             */
+/*   Updated: 2022/11/28 16:32:35 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#define ZNUM 4
 
-Zombie* zombieHorde( int N, std::string name );
-
-int main(void)
+Zombie *newZombie( std::string str )
 {
-    Zombie *test;
-    int     test_num;
+  //heap memory
+  Zombie *temp;
 
-    test_num = ZNUM;
-    test = zombieHorde(test_num, "Bobbosaurus");
-    while (test_num > 0)
-    {
-        test[test_num].announce();
-        test_num--;
-    }
-    delete[] test;
-    return (0);
+  temp = new Zombie;//deletions v
+  temp->setZombie(str);
+  return (temp);
 }
-

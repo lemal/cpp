@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:37:50 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/28 17:11:42 by tapulask         ###   ########.fr       */
+/*   Created: 2022/11/28 16:32:59 by tapulask          #+#    #+#             */
+/*   Updated: 2022/11/28 16:33:46 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#define ZNUM 4
 
-Zombie* zombieHorde( int N, std::string name );
-
-int main(void)
+void Zombie::randomChump(  std::string str )
 {
-    Zombie *test;
-    int     test_num;
+  //stack memory
+  Zombie temp;
 
-    test_num = ZNUM;
-    test = zombieHorde(test_num, "Bobbosaurus");
-    while (test_num > 0)
-    {
-        test[test_num].announce();
-        test_num--;
-    }
-    delete[] test;
-    return (0);
+  temp.setZombie(str);
+  temp.announce();
 }
-

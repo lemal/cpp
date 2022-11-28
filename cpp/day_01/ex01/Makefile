@@ -1,4 +1,4 @@
-SRCS	=	Zombie.cpp
+SRCS	=	Zombie.cpp main.cpp zombieHorde.cpp
 #main.cpp
 
 NAME	=	zombieHorde
@@ -12,8 +12,7 @@ CC		=	c++
 DFLAGS	=	-MMD -MP
 
 %.o:	%.cpp
-	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
-#-o multiple output files error, thrown mqin into Zombie
+	${CC} ${CPPFLAGS} ${DFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS} Zombie.hpp
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
@@ -21,8 +20,7 @@ ${NAME}:	${OBJS} Zombie.hpp
 all:	${NAME}
 
 clean:	
-	${RM} ${OBJS} 
-	${RM} ${DEPS}
+	${RM} ${OBJS} ${DEPS}
 
 fclean:	clean
 	${RM} ${NAME}

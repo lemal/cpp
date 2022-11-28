@@ -6,28 +6,16 @@
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 10:51:22 by tapulask          #+#    #+#             */
-/*   Updated: 2022/11/28 14:26:53 by tapulask         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:01:13 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "phonebook.hpp"
-//# include <vector>
-//Your header has methods realization - 1
+//Your header has methods realization - 0
 Contact::Contact(void)
 {
-	std::cout << "Constructor called" << std::endl;
-	// std::cout << "Enter your first name: " << std::endl;
-	// std::cin >> this->firstName;
-	// std::cout << "Enter your last name: " << std::endl;
-	// std::cin >> this->lastName;
-	// std::cout << "Enter your nickname: " << std::endl;
-	// std::cin >> this->nickName;
-	// std::cout << "Enter your phone number: " << std::endl;
-	// std::cin >> this->phoneNumber;
-	// std::cout << "Enter your dark secret: " << std::endl;
-	// std::cin >> this->darkSecret;
+	//std::cout << "Constructor called" << std::endl;
 }
-//constructor of a temporary object that is being pushed. Maers NRVO and RVO optimisations - objects transferred someplace (?)
 
 bool Contact::SetVal(std::string str, std::string *val)
 {
@@ -68,11 +56,6 @@ bool	Contact::SetDarkSecret(void)
   return (SetVal("Enter your dark secret: ", &darkSecret));
 }
 
-//void    Contact::GetIndex(void)
-//{
-//  std::cout << std::setw(10) << std::setfill(' ') << index << "|";
-//}
-
 void    Contact::GetFirstName(void)
 {
   if (firstName.length() > 10)
@@ -103,11 +86,6 @@ void    Contact::GetNickName(void)
   std::cout << std::setw(10) << std::setfill(' ') << nickName << "|" << std::endl;
 }
 
-//void    Contact::GetDarkSecret(void)
-//{
-// std::cout << darkSecret << std::endl;
-//}
-
 void    Contact::SetUserData(void)
 {
     while (!SetFirstName());
@@ -119,21 +97,21 @@ void    Contact::SetUserData(void)
 
 void PhoneBook::SetContact(void)
 {
-  if (index == 2)
+  if (index == 8)
     index = 0;
   contactData[index].SetUserData();
   contactFilled[index] = true;
   index++;
 }
 
-void PhoneBook::IndexIntoPhonebook(void)
+void PhoneBook::IndexIntoPhonebook(std::string &str)
 {
-  std::string str;
-  
   std::cout << "Enter an index from 1 up to and including 8" << std::endl;
   getline(std::cin, str);
-  while (!(str[0] > '0' && str[0] < '9'))
+  while (str.length() != 1 || !(str[0] > '0' && str[0] < '9'))
   {
+    if (str[0] == 'E' && str[1] == 'X' && str[2] == 'I' && str[3] == 'T')
+        return ;
     std::cout << "Number out of range. Try 1-8" << std::endl; 
     getline(std::cin, str);
   }
@@ -147,13 +125,11 @@ void PhoneBook::IndexIntoPhonebook(void)
   contactData[str[0] - '0' - 1].GetFirstName();
   contactData[str[0] - '0' - 1].GetLastName();
   contactData[str[0] - '0' - 1].GetNickName();
-  //contactData[str[0] - '0' - 1].GetPhoneNumber();
-  //contactData[str[0] - '0' - 1].GetDarkSecret();
-}//search mech tbd
+}
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 PhoneBook::PhoneBook(void)
@@ -177,28 +153,35 @@ PhoneBook::~PhoneBook(void)
 int	main(int argc, char **argv)
 {
 	PhoneBook	var;
-	std::string     str;
+	std::string str;
   
-  //Contact var;
 	(void)	argv;
 	if (argc != 1)
 		return (0);
 	while (true)
 	{
-	  getline(std::cin, str);
-	  if (str[0] == 'E' && str[1] == 'X' && str[2] == 'I' && str[3] == 'T')
-	    break ;
-	  else if (str[0] == 'A' && str[1] == 'D' && str[2] == 'D')
-	    var.SetContact();
-	  else if (str[0] == 'S' && str[1] == 'E' && str[2] == 'A' && str[3] == 'R' && str[4] == 'C' && str[5] == 'H')
-	    var.IndexIntoPhonebook();
-	  else if (std::cin.eof())
-	    break;
-	  else
-	    std::cout << "Usage - ADD, SEARCH or EXIT" << std::endl;
-	      //what if you were stuck on an island with a modern language and knowledge of only C?
-	      //code up in c, and search for alt later.
+	    getline(std::cin, str);
+	    if (str[0] == 'A' && str[1] == 'D' && str[2] == 'D')
+	        var.SetContact();
+	    else if (str[0] == 'S' && str[1] == 'E' && str[2] == 'A' && str[3] == 'R' && str[4] == 'C' && str[5] == 'H')
+	     var.IndexIntoPhonebook(str);
+	    else if (std::cin.eof())
+	        break;
+	    else
+	        std::cout << "Usage - ADD, SEARCH or EXIT" << std::endl;
+        if (str[0] == 'E' && str[1] == 'X' && str[2] == 'I' && str[3] == 'T')
+	        break ;
 	}
+	return (0);
+}
+//Command based state? - successfully instantiated a class as an object with many objects of another class
+
+
+//constructor of a temporary object that is being pushed. Maers NRVO and RVO optimisations - objects transferred someplace (?)
+
+//what if you were stuck on an island with a modern language and knowledge of only C?
+//code up in c, and search for alt later.
+
 	//var.SetContact();
 	//nice! now make it do what exactly?
 	//var.SetUserData();
@@ -206,6 +189,3 @@ int	main(int argc, char **argv)
     // kek.push_back(Contact());
 	// var.SetContactDetails();//assume they are right for now
 	// var.SetContactData();
-	return (0);
-}
-//Command based state? - successfully instantiated a class as an object with many objects of another class
