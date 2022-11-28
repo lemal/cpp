@@ -4,10 +4,10 @@ NAME	=	phonebook
 OBJS	=	${SRCS:%.cpp=%.o}
 DEPS	=	${OBJS:%.o=%.d}
 
-CPPFLAGS=	-Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 CC		=	c++
-DFLAGS	=	-MMD -MP
+DFLAGS	=	-MMD
 
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
