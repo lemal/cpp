@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} violence.hpp
+${NAME}:	${OBJS} 
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}
