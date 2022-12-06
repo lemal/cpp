@@ -12,7 +12,7 @@ DFLAGS	=	-MMD
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
 
-${NAME}:	${OBJS} phonebook.hpp
+${NAME}:	${OBJS}
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}

@@ -1,4 +1,4 @@
-SRCS	=	main.cpp
+SRCS	=	main.cpp inputChecks.cpp replace.cpp
 NAME	=	sedcpy
 
 OBJS	=	${SRCS:%.cpp=%.o}
@@ -10,9 +10,9 @@ CC		=	c++
 DFLAGS	=	-MMD -MP
 
 %.o:	%.cpp
-	${CC} ${CPPFLAGS} ${DFLAGS} -c ${SRCS} -o $@
+	${CC} ${CPPFLAGS} ${DFLAGS} -c $< -o $@
 
-${NAME}:	${OBJS} Zombie.hpp
+${NAME}:	${OBJS}
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}

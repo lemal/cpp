@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   inputChecks.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tapulask <tapulask@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 15:27:25 by tapulask          #+#    #+#             */
-/*   Updated: 2022/12/01 15:27:27 by tapulask         ###   ########.fr       */
+/*   Created: 2022/12/01 15:28:53 by tapulask          #+#    #+#             */
+/*   Updated: 2022/12/01 16:04:55 by tapulask         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "replace.hpp"
 
-Zombie::Zombie()
+bool inputValid(int argc, std::ifstream &myFile)
 {
+    if (argc == 4 && myFile.fail())
+    {
+      std::cout << "No such file!" << std::endl;
+      return (false);
+    }  
+    else if (argc != 4)
+    {
+      myFile.close();
+      return (false);
+    }
+    return (true);
 }
-
-void Zombie::announce( void )
-{
-  std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setZombie( std::string str)
-{
-  name = str;
-}
-
-Zombie::~Zombie()
-{}
