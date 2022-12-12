@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "main.hpp"//replacing file contents?
 
 int main(int argc, char **argv)
 {
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
     myFile.close();
     return (0);
   }
+
   while (true)
   {
     getline(myFile, str);
@@ -28,11 +29,12 @@ int main(int argc, char **argv)
     {
       str.erase(loc, needle.length());
       str.insert(loc, argv[3]);
-    }
+    }  //std::cout << loc << std::endl;
+    outFile << str << std::endl;
     if (myFile.eof())
       break;
-    outFile << str << std::endl;
   }
+  //std::cout << "Hello there!" << std::endl;
   myFile.close();
   outFile.close();
   return (0);
