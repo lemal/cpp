@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VIOLENCE_HPP
-# define VIOLENCE_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 # include <iostream>
 # include <string>
-
+/*
 class Weapon
 {
 private:
@@ -52,5 +52,19 @@ public:
   //void setWeapon(Weapon wpnInit);
   void setWeapon(Weapon &wpnInit);
   ~HumanB();
-  };
+  };*/
+class Fixed
+{
+private:
+  int              val;
+  static const int fract;
+public:
+  Fixed();
+  Fixed(Fixed &init);
+  Fixed& operator=(Fixed &init);//anon var - how is it used? - it is only anon in the header :)
+  int getRawBits( void ) const;
+  void setRawBits( int const raw );
+  ~Fixed();
+};
+
 #endif

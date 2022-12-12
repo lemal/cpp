@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "violence.hpp"
+#include "Fixed.hpp"
 
-std::string const &Weapon::getType(void)
+/*std::string const &Weapon::getType(void)
 {
   std::string const &typeRef = type;
 
@@ -77,8 +77,8 @@ void HumanB::setWeapon(Weapon &wpnInit)
   //it is not a constructor, so cannot be base initialized
   //now the issue is that the B 'subtype' of the A type
   //should reflect all and every change made to B
-}
-int main(void)
+  }*/
+/*int main(void)
 {
 {
   Weapon club = Weapon("crude spiked club");
@@ -112,7 +112,29 @@ int main(void)
   club.setType("some other type of club");
   //std::cout << club.getType() << std::endl;
   jim.attack();
- }
-}//how do I make the changes reflect through to the superset variable?
+  }*/
+//how do I make the changes reflect through to the superset variable?
 
 //so references are used to make variables interlinked - have changes in one subvariable be reflected in the other when passing it by value.
+
+
+const int Fixed::fract=8;
+
+int main(void)
+{
+  Fixed a;
+  
+  Fixed b( a );
+  
+  Fixed c;
+  
+  c = b;
+  
+  std::cout << a.getRawBits() << std::endl;
+  
+  std::cout << b.getRawBits() << std::endl;
+  
+  std::cout << c.getRawBits() << std::endl;
+  
+  return 0;
+}

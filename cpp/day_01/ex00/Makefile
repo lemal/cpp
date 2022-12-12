@@ -12,7 +12,7 @@ DFLAGS	=	-MMD -MP
 %.o:	%.cpp
 	${CC} ${CPPFLAGS} ${DFLAGS} -c $< -o $@
 
-${NAME}:	${OBJS} Zombie.hpp
+${NAME}:	${OBJS}
 	${CC} ${CPPFLAGS} ${OBJS} -o $@
 
 all:	${NAME}
