@@ -24,7 +24,7 @@ Fixed& Fixed::operator=( Fixed init )
 
 std::ostream &operator<<( std::ostream &o, Fixed const &thing)
 {
-  o << thing.getRawBits();
+  o << thing.toFloat();
   return (o);
 }
 
@@ -56,22 +56,30 @@ Fixed::Fixed( const float floatVal)
 
   //temp.
   //std::cout << "Float constructor called "<< floatVal << std::endl;
-    setRawBits(roundf(floatVal));
+  // setRawBits(roundf(floatVal));
+  unsigned int temp;
+
+  temp = roundf(floatVal * (1 << Fixed::fract));
+  setRawBits(temp);
     // setRawBits(floatVal);
     // return (temp);
 }
 
 float Fixed::toFloat( void ) const
 {
-  return ((float)val);
+  float temp;
+
+  temp = ((float)this->val / (float)(1 << Fixed::fract));
+  return (temp);
 }
 
 int Fixed::toInt( void ) const
 {
-  return ((int)val);
+  return (this->val >> Fixed::fract);
 }
 
 Fixed::~Fixed()
 {
   std::cout << "Destructor called" << std::endl;
 }
+//aand it works. So The algo for changing fixed point into float and otherwise is still unknown. But it at least works :)
